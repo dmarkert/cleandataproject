@@ -27,7 +27,7 @@ Goal of the project was to take the Samsung dataset available [here](http://arch
 ###Cleaning of the data
 (for a detailed description see the [readme](https://github.com/dmarkert/cleandataproject))
 
-1. reads in the data test and training datasets, the subject and activity mapping information for each, and the top-level activity and feature descriptions.  It uses a custom set of [feature names](https://github.com/dmarkert/cleandataproject/blob/master/my_feature_names.txt) that I created for the dataset column names.
+1. reads in the test and training datasets, the subject and activity mapping information for each, and the top-level activity and feature descriptions.  It uses a custom set of [feature names](https://github.com/dmarkert/cleandataproject/blob/master/my_feature_names.txt) that I created for the dataset column names.
 2. It maps the subject and activity information back into the main datasets and then uses rbind to append the training and test datasets into one large table.
 3. I then pull out the mean and std dev information for each signal and translate the numeric activity ids into their more readable form using the activity_labels.txt file that I loaded in step 1.  I include only the direct means and std deviations for each variable and not the various weighted means and other kinds of averages that are included in the dataset.
 3. I then group the data by subject and activity and find the mean of each mean and std dev variable and write the result to to a table using
