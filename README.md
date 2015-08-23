@@ -46,10 +46,10 @@ Steps
     - tBodyGyroMean
     - tBodyGyroJerkMean
     
-    I left them out because they weren't plain means or std deviations of the signal measurements but rather more elaborate weighted averages or averages of multiple signals in the window sample which as I interpreted the requirements were not variables we were interested in because you can't average a set of averages and since we were taking the mean of the variables as our last step, I couldn't include them;
+    I left them out because they weren't plain means or std deviations of the signal measurements but rather more elaborate weighted averages or averages of multiple signals in the window sample which I wasn't interested in.
     
 6.  Levels were then replaced with their readable equivalent through factor level replacement.  Because the order of the factors was in the same order as the readable activity names from the dataset, it was easy to replace to levels by using a vector of the activity names.
 
 7.  Then I took the grouped the data by subject and activity and then took the mean of the variables.  I also removed some columns I didn't need and ordered the summarized dataset by Subject and then by Activity so that I could see the summarized data for each subject at once.
 
-8.  Wrote the table to disk.
+8.  I then wrote the tidy dataset to disk.
