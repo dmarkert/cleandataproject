@@ -29,7 +29,7 @@ Goal of the project was to take the Samsung dataset available [here](http://arch
 
 1. reads in the data test and training datasets, the subject and activity mapping information for each, and the top-level activity and feature descriptions.  It uses a custom set of [feature names](https://github.com/dmarkert/cleandataproject/blob/master/my_feature_names.txt) that I created for the dataset column names.
 2. It maps the subject and activity information back into the main datasets and then uses rbind to append the training and test datasets into one large table.
-3. I then pull out the mean and std dev information for each signal and translate the numeric activity ids into their more readable form using the activity_labels.txt file that I loaded in step 1.
+3. I then pull out the mean and std dev information for each signal and translate the numeric activity ids into their more readable form using the activity_labels.txt file that I loaded in step 1.  I include only the direct means and std deviations for each variable and not the various weighted means and other kinds of averages that are included in the dataset.
 3. I then group the data by subject and activity and find the mean of each mean and std dev variable and write the result to to a table using
 
         write.table(tidy.data, file.path(path.to.source, "tidy_data.txt"), row.names = F)
@@ -59,7 +59,7 @@ The following variables are present:
 ##Variable Descriptions 
 I've included outputs from running `str()` on the dataset to give you an brief understanding of the data.  Where necessary, I'll describe it as well. I encourage the reader to review the *feature_info.txt* and *README.txt* included with the UAC Har Dataset for additional information.  You can also look at the [study webpage](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) to find out more information about the variables measured as well.
 
-Columns were renamed only slightly from the original (parenthesis were removed and underscores were replaced by periods) to make it easier to map them back to the raw data.
+Columns were renamed only slightly from the original (parenthesis were removed and underscores were replaced by periods) to make it easier to map them back to the raw data.  I also concluded after fully expanding a few of the columns that the long-form versions didn't make the dataset any easier to read through.
 
 ###subject.id
 
@@ -79,9 +79,7 @@ The activity the subject was performing while measurements were taking place.
 
 ###variables which summarize the mean and std dev of various measurements
 
-The names of the variables are little changed from the original other than a few cosmetic tweaks.  I didn't expand the abbreviations because it made the dataset so bloated that it became uncomfortable to read through, the expanded versions didn't add to the readability and keeping them close to the original spellings aids in mentally mapping them back to their original values.
-
-The following abbreviations are used.  Please refer to the original dataset for a more detailed explanation:
+The following abbreviations are used.  Please refer to the documentation accompanying the original dataset for a more detailed explanation:
 
 |Abbreviation|Expansion|
 |---|---|
